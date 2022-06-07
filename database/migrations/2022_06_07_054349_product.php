@@ -18,7 +18,7 @@ class Product extends Migration
             $table->string("code");
             $table->timestamps();
         });
-        Schema::create('sizes', function (Blueprint $table) {
+        Schema::create('colors', function (Blueprint $table) {
             $table->id();
             $table->string("code");
             $table->timestamps();
@@ -33,7 +33,7 @@ class Product extends Migration
         });
         Schema::table('products', function($table) {
             $table->foreign('type_id')->references('id')->on('types')->onDelete('set null');
-            $table->foreign('color_id')->references('id')->on('sizes')->onDelete('set null');
+            $table->foreign('color_id')->references('id')->on('colors')->onDelete('set null');
 
         });
 

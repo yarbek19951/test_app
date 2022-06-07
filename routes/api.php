@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ProductController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -27,6 +28,14 @@ Route::group([
     ], function ($router){
         Route::get("", [UserController::class,'index']);
         Route::post("create", [UserController::class,'create']);
+    });
+    Route::group([
+        'prefix'=>'product'
+    ], function ($router){
+        Route::get("", [ProductController::class,'index']);
+        Route::post("create", [ProductController::class,'create']);
+        Route::put("update/{id}/", [ProductController::class,'update']);
+        Route::delete("destroy/{id}/", [ProductController::class,'destroy']);
     });
 
 });
