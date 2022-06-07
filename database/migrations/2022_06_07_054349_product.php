@@ -25,11 +25,11 @@ class Product extends Migration
         });
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("type_id")->unsigned()->nullable();
+            $table->unsignedBigInteger("type_id")->nullable();
             $table->unsignedBigInteger("color_id")->nullable();
             $table->string("name");
             $table->timestamps();
-
+s
         });
         Schema::table('products', function($table) {
             $table->foreign('type_id')->references('id')->on('types')->onDelete('set null');
