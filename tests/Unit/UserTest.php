@@ -9,7 +9,7 @@ use Tests\TestCase;
 
 class UserTest extends TestCase
 {
-//    use RefreshDatabase;
+    use RefreshDatabase;
     /**
      * A basic unit test example.
      *
@@ -30,11 +30,11 @@ class UserTest extends TestCase
 
     public function test_user_create()
     {
-        $user = User::first();
-        $this->actingAs($user,'api');
+//        $user = User::first();
+//        $this->actingAs($user,'api');
         $response = $this->json("POST", "/api/v1/user/create",[
             "name"=>"Bla bla",
-            "email"=>"yarbek122@gmail.com",
+            "email"=>"yarbek12211@gmail.com",
             "password"=>"12345"
         ]);
 
